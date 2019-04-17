@@ -68,3 +68,41 @@ void bestFit(int B[], int m, int P[], int n)
             printf("Not Allocated\n"); 
     }
 } 
+void worstFit(int B[], int m, int P[],  int n) 
+{
+    int i,j;
+    int tempar[n]; 
+    for(i=0;i<n;i++){
+        tempar[i]=-1;
+    } 
+    for (i=0; i<n; i++) 
+    { 
+        int t = -1; 
+        for (j=0; j<m; j++) 
+        { 
+            if (B[j] >= P[i]) 
+            { 
+                if (t == -1) 
+                    t = j; 
+                else if (B[t] < B[j]) 
+                    t = j; 
+            } 
+        } 
+        if (t != -1) 
+        { 
+            tempar[i] = t; 
+            B[t] -= P[i]; 
+        } 
+    }
+    printf( "\nProcess No.\tProcess Size\tBlock no.\n"); 
+    for (i = 0; i < n; i++) 
+    { 
+        printf(" %d\t\t%d\t\t",i+1, P[i]); 
+        if (tempar[i] != -1) 
+            printf("%d\n", tempar[i] + 1); 
+        else
+            printf("Not Allocated\n"); 
+    }
+
+
+} 
