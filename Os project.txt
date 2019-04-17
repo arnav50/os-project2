@@ -121,49 +121,37 @@ int main()
         scanf("%d",&Process[j]);
     }
 
-    
-
-    int b1[34],b2[34],b3[34];
-
+      int b1[34],b2[34],b3[34];
     int p1[34],p2[34],p3[34];
-
     for (i = 0; i <m; i++) {
-
       b1[i]=Block[i];
-
       b2[i]=Block[i];
-
       b3[i]=Block[i];
-
    }
-
    for (j=0;j<n;j++) {
-
       p1[j]=Process[j];
-
       p2[j]=Process[j];
-
       p3[j]=Process[j];
-
    }
-
    firstFit(b1, m, p1, n); 
-
-   
-
    bestFit(b2, m, p2, n);
-
-   
-
    worstFit(b3, m, p3, n); 
-
-   
-
     return 0 ; 
-
 } 
-
-
-
-
 	}
+sort(&p[0], n); // Sort the processes according to the arrival time of each process.	
+	while (1) {
+		enqueue(p, n);
+		printf("\nIn queue: ");
+		for (i = 0; i <= rear; ++i) {
+			printf("%d ", queue[i]->p_no);
+		}
+		printf("\nFront = %d, Rear = %d.\n\n", front, rear);
+		execute();
+		// If all the processes have been processed, break from the loop.
+		if (processed == n)
+			break;
+	}
+	return 0;
+}
+
