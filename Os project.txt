@@ -103,6 +103,67 @@ void worstFit(int B[], int m, int P[],  int n)
         else
             printf("Not Allocated\n"); 
     }
+} 
+int main() 
+{ 
+    int m,n; int i,j;
+    int Block[m],Process[n];
+    printf("\nEnter Total No of Blocks: ");
+    scanf("%d",&m);
+    for(i=0;i<m;i++){
+        printf("\nEnter block Size of Block B[%d]: ",i+1);
+        scanf("%d",&Block[i]);
+    }
+    printf("\nEnter Total No of Process: ");
+    scanf("%d",&n);
+    for(j=0;j<n;j++){
+        printf("\nEnter Process Size of Process P[%d]: ",j+1);
+        scanf("%d",&Process[j]);
+    }
 
+    
+
+    int b1[34],b2[34],b3[34];
+
+    int p1[34],p2[34],p3[34];
+
+    for (i = 0; i <m; i++) {
+
+      b1[i]=Block[i];
+
+      b2[i]=Block[i];
+
+      b3[i]=Block[i];
+
+   }
+
+   for (j=0;j<n;j++) {
+
+      p1[j]=Process[j];
+
+      p2[j]=Process[j];
+
+      p3[j]=Process[j];
+
+   }
+
+   firstFit(b1, m, p1, n); 
+
+   
+
+   bestFit(b2, m, p2, n);
+
+   
+
+   worstFit(b3, m, p3, n); 
+
+   
+
+    return 0 ; 
 
 } 
+
+
+
+
+	}
